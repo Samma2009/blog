@@ -11,7 +11,7 @@ To install it you select the ExtensionsDevelopment workload in the visual studio
 installing visual studio 2022 or if you already have it installed you can
 modify the install and add the workload.
 
-![workload](workloads.png)
+![workload](workloads.PNG)
 
 ## downloading the devkit
 if you have git installed run this command in an empty folder
