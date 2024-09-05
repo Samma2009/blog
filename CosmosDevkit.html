@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to install CosmosOS Devkit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+        header h1 {
+            text-align: center;
+        }
+        .main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        pre {
+            background: #c0c0c0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+        a {
+            color: #77aaff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>How to install CosmosOS Devkit</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <h2 id="prerequisites">Prerequisites</h2>
+            <ul>
+                <li>Windows10/11 or Linux</li>
+                <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.Net6</a></li>
+                <li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=26999&msockid=19eaa39fc49d6d381175b70dc57c6c43">vcpp2010</a></li>
+                <li><a href="https://visualstudio.microsoft.com/en-us/downloads/">VisualStudio2022 (Windows only)</a></li>
+            </ul>
+            <h2 id="instaling-the-workloads-you-do-not-need-vs2022-if-you-are-on-linux">Installing the workloads (you do not need VS2022 if you are on Linux)</h2>
+            <p>Cosmos requires a workload for Visual Studio to work. To install it, select the Extensions Development workload in the Visual Studio installer before installing Visual Studio 2022, or if you already have it installed, you can modify the install and add the workload.</p>
+            <p><img src="workloads.png" alt="workload"></p>
+            <h2 id="downloading-the-devkit">Downloading the devkit</h2>
+            <p>If you have Git installed, run this command in an empty folder:</p>
+            <pre><code>git clone https://github.com/CosmosOS/Cosmos.git</code></pre>
+            <p>Else, you can go to the <a href="https://github.com/CosmosOS/Cosmos.git">CosmosOS</a> repo and clone it manually. Remember to put it in an empty folder.</p>
+            <p>After cloning the repo, you need to rename the Cosmos-master folder to Cosmos.</p>
+            <h2 id="building-the-devkit">Building the devkit</h2>
+            <h3 id="windows">Windows</h3>
+            <p>Run the install-VS2022.bat file with administrator privileges and make sure to have Visual Studio closed.</p>
+            <h3 id="linux">Linux</h3>
+            <p>In the makefile change line 19 from:</p>
+            <pre><code>BUILDMODE=Release</code></pre>
+            <p>to:</p>
+            <pre><code>BUILDMODE=Debug</code></pre>
+            <p>Open a terminal in the Cosmos folder and run the make command. You might want to also install the Cosmos template. To install it, run:</p>
+            <pre><code>dotnet new install source/templates/csharp</code></pre>
+            <p>Optionally, you can install <a href="https://github.com/PratyushKing/CosmosCLI">CosmosCLI</a> for better project management on Linux.</p>
+        </div>
+    </div>
+</body>
+</html>
